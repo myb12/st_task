@@ -44,7 +44,7 @@ const ProductItem = ({ product }) => {
   };
 
   useEffect(() => {
-    setProductInCard(cart.find((item) => product.id === product.id));
+    setProductInCard(cart.find((item) => item.id === product.id));
   }, [cart, cart.length, product.id]);
 
   const idDiscounted = useCallback(() => {
@@ -105,7 +105,13 @@ const ProductItem = ({ product }) => {
                 <>
                   <CardButton
                     isProductInCart={!!productInCard}
-                    type={productInCard ? "delete" : "cart"}
+                    type={
+                      productInCard
+                        ? productInCard.quantity > 1
+                          ? "minus"
+                          : "delete"
+                        : "cart"
+                    }
                     onClick={handleAddToCart}
                     handleRemoveFromCart={handleRemoveFromCart}
                   >
