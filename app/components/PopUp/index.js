@@ -1,15 +1,15 @@
-// app/components/Popup.js
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { bool, func, shape, string, number, arrayOf } from "prop-types";
+
+import CardButton from "../CardButton";
 
 import styles from "./popUp.module.css";
-import CardButton from "../CardButton";
 
 const Popup = ({
   isOpen,
   onClose,
-  children,
   product,
   productInCard,
   handleAddToCart,
@@ -67,6 +67,26 @@ const Popup = ({
       </div>
     </>
   );
+};
+
+Popup.propTypes = {
+  isOpen: bool.isRequired,
+  onClose: func.isRequired,
+  product: shape({
+    images: arrayOf(string).isRequired,
+    title: string.isRequired,
+    brand: string,
+    description: string.isRequired,
+  }).isRequired,
+  productInCard: shape({
+    quantity: number.isRequired,
+  }),
+  handleAddToCart: func.isRequired,
+  handleRemoveFromCart: func.isRequired,
+};
+
+Popup.defaultProps = {
+  productInCard: null,
 };
 
 export default Popup;

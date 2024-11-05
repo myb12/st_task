@@ -90,3 +90,10 @@ button.checkoutButton {
 .checkoutButton:hover {
   background-color: #005bb5;
 }
+
+.emptyCartMessage {
+  font-size: 1.5rem;
+  color: #888;
+  text-align: center;
+  margin: 50px 0 16px;
+}

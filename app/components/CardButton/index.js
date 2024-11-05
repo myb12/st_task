@@ -1,5 +1,5 @@
 import React from "react";
-import { bool, string, func } from "prop-types";
+import { bool, string, func, node } from "prop-types";
 
 import Icon from "../common/icons";
 
@@ -40,6 +40,7 @@ CardButton.propTypes = {
   onClick: func,
   handleRemoveFromCart: func,
   className: string,
+  children: node.isRequired,
 };
 
 CardButton.defaultProps = {

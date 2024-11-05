@@ -6,9 +6,17 @@ import { useSelector } from "react-redux";
 import Icon from "../icons";
 
 import styles from "./header.module.css";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const { totalQuantity } = useSelector((state) => state.cart);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <header className={styles.header}>

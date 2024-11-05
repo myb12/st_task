@@ -1,4 +1,3 @@
-import { CURRENCY_SYMBOL } from "@/app/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +7,9 @@ import CardButton from "../CardButton";
 import Icon from "../common/icons";
 import Popup from "../PopUp";
 
+import { addToCart, removeFromCart } from "@/app/redux/slices/cartSlice";
+
+import { CURRENCY_SYMBOL } from "@/app/utils/constants";
 import {
   calcOriginalPrice,
   inStock,
@@ -15,11 +17,10 @@ import {
   isFavourite,
   truncateTitle,
 } from "@/app/utils/utils";
-import { addToCart, removeFromCart } from "@/app/redux/slices/cartSlice";
 
 import styles from "./productItem.module.css";
 
-const ProductItem = ({ product, variant = "with-button" }) => {
+const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const { cart = [] } = useSelector((state) => state.cart) || [];
 
@@ -43,7 +44,7 @@ const ProductItem = ({ product, variant = "with-button" }) => {
   };
 
   useEffect(() => {
-    setProductInCard(cart.find((item) => item.id === product.id));
+    setProductInCard(cart.find((item) => product.id === product.id));
   }, [cart, cart.length, product.id]);
 
   const idDiscounted = useCallback(() => {
@@ -84,21 +85,23 @@ const ProductItem = ({ product, variant = "with-button" }) => {
 
         <div
           className={`${styles.productImage}  ${
-            variant === "with-button" ? styles.withButton : ""
+            isInStock() ? styles.withButton : ""
           }`}
         >
-          <Image
-            src={product.images[0]}
-            alt="product"
-            layout="fill"
-            objectFit="contain"
-            unoptimized
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          <Link href={`/product/${product.id}`}>
+            <Image
+              src={product.images[0]}
+              alt="product"
+              layout="fill"
+              objectFit="contain"
+              unoptimized
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </Link>
 
           {
             <div className={styles.buttons}>
-              {isInStock() ? (
+              {isInStock() && (
                 <>
                   <CardButton
                     isProductInCart={!!productInCard}
@@ -114,20 +117,19 @@ const ProductItem = ({ product, variant = "with-button" }) => {
                     Quick View
                   </CardButton>
                 </>
-              ) : (
-                <CardButton className={styles.outOfStockBtn}>
-                  Out of Stock
-                </CardButton>
               )}
             </div>
           }
         </div>
         <div className={styles.cardFooter}>
-          <Link href="#">
+          <Link href={`/product/brand/${product.brand}`}>
             <p className={styles.brand}>{product.brand || "Fabrilife"}</p>
           </Link>
-          <Link href="#">
-            <h3 className={styles.title}>{truncateTitle(product.title)}</h3>
+          <Link href={`/product/${product.id}`}>
+            <h3 className={styles.title}>
+              {truncateTitle(product.title)}{" "}
+              <span>{isInStock() ? "" : "(Out of Stock)"}</span>
+            </h3>
           </Link>
           <div className={styles.prices}>
             <span className={styles.price}>
