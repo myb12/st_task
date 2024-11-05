@@ -1,12 +1,11 @@
-/* app/components/Popup.module.css */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  z-index: 1000; /* Ensure it sits above other content */
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
 }
 
 .popup {
@@ -46,18 +45,14 @@
   grid-template-columns: 1fr;
 }
 
-.addToCart {
-  button {
-    width: max-content;
-    background: #1882ff;
-    margin-top: 12px;
-  }
+.addToCart button {
+  width: max-content;
+  background: #1882ff;
+  margin-top: 12px;
 }
 
-.productInCard {
-  button {
-    background: #03a629;
-  }
+.productInCard button {
+  background: #03a629;
 }
 
 @media (min-width: 768px) {

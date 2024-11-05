@@ -22,18 +22,18 @@
   display: flex;
   align-items: center;
   font-weight: 700;
+}
 
-  svg {
-    width: 32px;
-    height: 32px;
+.cart svg {
+  width: 32px;
+  height: 32px;
+}
 
-    path {
-      fill: #000;
-    }
-  }
+.cart svg path {
+  fill: #000;
+}
 
-  span {
-    color: #5a6573;
-    font-size: 14px;
-  }
+.cart span {
+  color: #5a6573;
+  font-size: 14px;
 }

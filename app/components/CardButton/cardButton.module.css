@@ -13,17 +13,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  span {
-    font-size: 14px;
-    line-height: 18px;
-    margin-left: 4px;
-  }
+.content span {
+  font-size: 14px;
+  line-height: 18px;
+  margin-left: 4px;
+}
 
-  svg {
-    width: 14px;
-    height: 14px;
-  }
+.content svg {
+  width: 14px;
+  height: 14px;
 }
 
 .productInCart {
@@ -31,10 +31,10 @@
 
   .content {
     justify-content: space-between;
+  }
 
-    span {
-      margin-right: 4px;
-    }
+  .content span {
+    margin-right: 4px;
   }
 }
 

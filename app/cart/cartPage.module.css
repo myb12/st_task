@@ -57,12 +57,10 @@
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.2s;
+}
 
-  svg {
-    path {
-      fill: #000;
-    }
-  }
+.iconButton svg path {
+  fill: #000;
 }
 
 .iconButton:hover {
