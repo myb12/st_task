@@ -60,8 +60,6 @@
 .originalPrice {
   color: #77818c;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
   margin-left: var(--space0_8);
   text-decoration-line: line-through;
 }
@@ -108,11 +106,17 @@
   bottom: 0;
   left: 0;
   z-index: 2;
+  width: 100%;
 
   button {
     &:first-child {
       margin-bottom: var(--space0_8);
     }
+  }
+
+  button.outOfStockBtn {
+    margin-bottom: 0;
+    cursor: auto;
   }
 }
 

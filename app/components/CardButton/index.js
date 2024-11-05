@@ -11,12 +11,13 @@ const CardButton = ({
   children,
   onClick,
   handleRemoveFromCart,
+  className,
 }) => {
   return (
     <button
       className={`${styles.button} ${
         isProductInCart ? styles.productInCart : ""
-      }`}
+      } ${className}`}
       onClick={isProductInCart ? undefined : onClick}
     >
       <div className={styles.content}>
@@ -38,12 +39,14 @@ CardButton.propTypes = {
   type: string.isRequired,
   onClick: func,
   handleRemoveFromCart: func,
+  className: string,
 };
 
 CardButton.defaultProps = {
   isProductInCart: false,
   onClick: undefined,
   handleRemoveFromCart: undefined,
+  className: "",
 };
 
 export default CardButton;

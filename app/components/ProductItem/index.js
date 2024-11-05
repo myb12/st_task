@@ -1,23 +1,25 @@
 import { CURRENCY_SYMBOL } from "@/app/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useEffect, useState } from "react";
 
 import CardButton from "../CardButton";
 import Icon from "../common/icons";
-
-import { isEligibleForDiscount, truncateTitle } from "@/app/utils/utils";
-
-import styles from "./productItem.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "@/app/redux/slices/cartSlice";
-import { useCallback, useEffect, useState } from "react";
 import Popup from "../PopUp";
 
-const ProductItem = ({
-  product,
-  variant = "with-button",
-  isFavourite = true,
-}) => {
+import {
+  calcOriginalPrice,
+  inStock,
+  isEligibleForDiscount,
+  isFavourite,
+  truncateTitle,
+} from "@/app/utils/utils";
+import { addToCart, removeFromCart } from "@/app/redux/slices/cartSlice";
+
+import styles from "./productItem.module.css";
+
+const ProductItem = ({ product, variant = "with-button" }) => {
   const dispatch = useDispatch();
   const { cart = [] } = useSelector((state) => state.cart) || [];
 
@@ -48,6 +50,14 @@ const ProductItem = ({
     return isEligibleForDiscount(product.discountPercentage);
   }, [product.discountPercentage]);
 
+  const favourite = useCallback(() => {
+    return isFavourite(product.rating);
+  }, [product.rating]);
+
+  const isInStock = useCallback(() => {
+    return inStock(product.availabilityStatus);
+  }, [product.availabilityStatus]);
+
   return (
     <div>
       <Popup
@@ -59,7 +69,7 @@ const ProductItem = ({
         handleRemoveFromCart={handleRemoveFromCart}
       />
       <div className={styles.card}>
-        {isFavourite && (
+        {favourite() && (
           <div className={styles.favourite}>
             <Icon type="heart" />
           </div>
@@ -71,7 +81,7 @@ const ProductItem = ({
             </span>
           </div>
         )}
-        {/* Product Image */}
+
         <div
           className={`${styles.productImage}  ${
             variant === "with-button" ? styles.withButton : ""
@@ -85,23 +95,32 @@ const ProductItem = ({
             unoptimized
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          {variant === "with-button" && (
+
+          {
             <div className={styles.buttons}>
-              <CardButton
-                isProductInCart={!!productInCard}
-                type={productInCard ? "delete" : "cart"}
-                onClick={handleAddToCart}
-                handleRemoveFromCart={handleRemoveFromCart}
-              >
-                {productInCard
-                  ? `${productInCard.quantity} Added in Cart`
-                  : "Add To Cart"}
-              </CardButton>
-              <CardButton type="eye" onClick={handleOpenPopup}>
-                Quick View
-              </CardButton>
+              {isInStock() ? (
+                <>
+                  <CardButton
+                    isProductInCart={!!productInCard}
+                    type={productInCard ? "delete" : "cart"}
+                    onClick={handleAddToCart}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                  >
+                    {productInCard
+                      ? `${productInCard.quantity} Added in Cart`
+                      : "Add To Cart"}
+                  </CardButton>
+                  <CardButton type="eye" onClick={handleOpenPopup}>
+                    Quick View
+                  </CardButton>
+                </>
+              ) : (
+                <CardButton className={styles.outOfStockBtn}>
+                  Out of Stock
+                </CardButton>
+              )}
             </div>
-          )}
+          }
         </div>
         <div className={styles.cardFooter}>
           <Link href="#">
@@ -114,9 +133,10 @@ const ProductItem = ({
             <span className={styles.price}>
               {CURRENCY_SYMBOL} {product.price || "2,500"}
             </span>
-            {product.originalPrice && (
+            {calcOriginalPrice(product.price, product.discountPercentage) && (
               <span className={styles.originalPrice}>
-                {CURRENCY_SYMBOL} {product.originalPrice}
+                {CURRENCY_SYMBOL}
+                {calcOriginalPrice(product.price, product.discountPercentage)}
               </span>
             )}
           </div>
