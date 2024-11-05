@@ -95,7 +95,7 @@
 
   span {
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
   }
 }
@@ -117,6 +117,7 @@
   button.outOfStockBtn {
     margin-bottom: 0;
     cursor: auto;
+    background-color: #8b0000;
   }
 }
 
@@ -131,5 +132,11 @@
     position: absolute;
     top: 0;
     left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .badge {
+    width: 42%;
   }
 }

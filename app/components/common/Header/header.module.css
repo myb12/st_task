@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.cart {
+  position: relative;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+
+  svg {
+    width: 32px;
+    height: 32px;
+
+    path {
+      fill: #000;
+    }
+  }
+
+  span {
+    color: #5a6573;
+    font-size: 14px;
+  }
+}
