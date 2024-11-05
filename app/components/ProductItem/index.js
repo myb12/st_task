@@ -59,7 +59,7 @@ const ProductItem = ({ product, variant = "with-button" }) => {
   }, [product.availabilityStatus]);
 
   return (
-    <div>
+    <>
       <Popup
         isOpen={isPopUpOpen}
         onClose={handleClosePopup}
@@ -142,7 +142,7 @@ const ProductItem = ({ product, variant = "with-button" }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

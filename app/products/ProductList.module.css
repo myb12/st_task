@@ -1,18 +1,21 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 36px 16px;
+  grid-gap: 12px 8px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .wrapper {
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px 12px;
   }
 }
 
 @media (min-width: 992px) {
   .wrapper {
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 36px 16px;
   }
 }
 
