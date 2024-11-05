@@ -1,10 +1,18 @@
 .card {
   position: relative;
-  background: #fff;
+  /* background: #ebe6e6; */
   padding: 0 4px;
   transition: all 0.15s linear;
-  /* box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15); */
   border-radius: 8px;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+
+    .badge {
+      left: -6px;
+    }
+  }
 }
 
 .productImage {
@@ -26,6 +34,7 @@
   font-size: 14px;
   line-height: 20px;
   margin-bottom: var(--space0_2);
+  cursor: pointer;
 }
 
 .title {
@@ -34,6 +43,7 @@
   font-weight: 600;
   line-height: 22px;
   margin-bottom: var(--space0_8);
+  cursor: pointer;
 }
 
 .prices {
@@ -56,12 +66,24 @@
   text-decoration-line: line-through;
 }
 
+.favourite {
+  width: max-content;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+
+  svg {
+    width: 24px;
+  }
+}
+
 .badge {
   position: absolute;
   width: 32%;
   height: 12%;
   top: 12px;
-  left: -6px;
+  left: -1px;
   z-index: 1;
   background-image: url(/discount-badge.svg);
   background-repeat: no-repeat;
@@ -71,10 +93,39 @@
   align-items: center;
   padding-bottom: 8px;
   padding-right: 22px;
+  transition: all 0.15s linear;
 
   span {
     color: #fff;
     font-size: 12px;
     font-weight: 600;
+  }
+}
+
+.buttons {
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+
+  button {
+    &:first-child {
+      margin-bottom: var(--space0_8);
+    }
+  }
+}
+
+.withButton {
+  &::after {
+    content: "";
+    border-radius: 6px 6px 4px 4px;
+    opacity: 0.33;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
