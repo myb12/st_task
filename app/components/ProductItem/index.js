@@ -15,7 +15,6 @@ import {
   calcOriginalPrice,
   inStock,
   isEligibleForDiscount,
-  isFavourite,
   truncateTitle,
 } from "@/app/utils/utils";
 
@@ -57,10 +56,6 @@ const ProductItem = ({ product }) => {
   const idDiscounted = useCallback(() => {
     return isEligibleForDiscount(product.discountPercentage);
   }, [product.discountPercentage]);
-
-  const favourite = useCallback(() => {
-    return isFavourite(product.rating);
-  }, [product.rating]);
 
   const isInStock = useCallback(() => {
     return inStock(product.availabilityStatus);
@@ -154,10 +149,7 @@ const ProductItem = ({ product }) => {
             <p className={styles.brand}>{product.brand || "Fabrilife"}</p>
           </Link>
           <Link href={`/product/${product.id}`}>
-            <h3 className={styles.title}>
-              {truncateTitle(product.title)}{" "}
-              <span>{isInStock() ? "" : "(Out of Stock)"}</span>
-            </h3>
+            <h3 className={styles.title}>{truncateTitle(product.title)} </h3>
           </Link>
           <div className={styles.prices}>
             <span className={styles.price}>
@@ -170,6 +162,9 @@ const ProductItem = ({ product }) => {
               </span>
             )}
           </div>
+          {!isInStock() && (
+            <span className={styles.outOfStock}>Out of Stock</span>
+          )}
         </div>
       </div>
     </>

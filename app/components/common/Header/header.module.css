@@ -14,7 +14,11 @@
   color: #333;
 }
 
-.cart {
+.menuItem {
+  display: flex;
+}
+
+.iconWrapper {
   position: relative;
   font-size: 1.5rem;
   color: #333;
@@ -22,18 +26,23 @@
   display: flex;
   align-items: center;
   font-weight: 700;
+  margin-left: 16px;
 }
 
-.cart svg {
+.iconWrapper svg {
   width: 32px;
   height: 32px;
 }
 
-.cart svg path {
+.iconWrapper svg path {
   fill: #000;
 }
 
-.cart span {
+.iconWrapper span {
   color: #5a6573;
   font-size: 14px;
+}
+
+.iconWrapper.wishList svg {
+  padding: 2px;
 }
