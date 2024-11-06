@@ -76,7 +76,6 @@ const ProductItem = ({ product }) => {
         handleRemoveFromCart={handleRemoveFromCart}
       />
       <div className={styles.card}>
-        {/* {favourite() && ( */}
         <div
           className={`${styles.favourite} ${
             productInWhichList?.id === product.id ? styles.fill : ""
@@ -89,7 +88,6 @@ const ProductItem = ({ product }) => {
             }
           />
         </div>
-        {/* )} */}
         {idDiscounted() && (
           <div className={styles.badge}>
             <span>
@@ -141,10 +139,10 @@ const ProductItem = ({ product }) => {
           }
         </div>
         <div className={styles.cardFooter}>
-          <Link href={`/product/brand/${product.brand}`}>
+          <Link href="#">
             <p className={styles.brand}>{product.brand || "Fabrilife"}</p>
           </Link>
-          <Link href={`/product/${product.id}`}>
+          <Link href="#">
             <h3 className={styles.title}>{truncateTitle(product.title)} </h3>
           </Link>
           <div className={styles.prices}>

@@ -43,6 +43,6 @@
   font-size: var(--fs-14);
 }
 
-.iconWrapper.wishList svg {
-  padding: var(--space0_2);
+.iconWrapper.wishList span {
+  margin-left: var(--space0_4);
 }

@@ -35,7 +35,7 @@ const WishListPage = () => {
       ) : (
         wishList.map((item) => (
           <div key={item.id} className={styles.wishListItem}>
-            <Link href={`/product/${item.id}`} className={styles.productImage}>
+            <Link href="#" className={styles.productImage}>
               <Image
                 src={item.images[0]}
                 alt={item.title}
@@ -45,7 +45,7 @@ const WishListPage = () => {
               />
             </Link>
             <div className={styles.productDetails}>
-              <Link href={`/product/${item.id}`}>
+              <Link href="#">
                 <h2 className={styles.productTitle}>{item.title}</h2>
               </Link>
               <button
