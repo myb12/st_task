@@ -8,6 +8,7 @@ import Icon from "../common/icons";
 import Popup from "../PopUp";
 
 import { addToCart, removeFromCart } from "@/app/redux/slices/cartSlice";
+import { toggleWishlist } from "@/app/redux/slices/wishListSlice";
 
 import { CURRENCY_SYMBOL } from "@/app/utils/constants";
 import {
@@ -23,8 +24,10 @@ import styles from "./productItem.module.css";
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const { cart = [] } = useSelector((state) => state.cart) || [];
+  const { wishList = [] } = useSelector((state) => state.wishList) || [];
 
   const [productInCard, setProductInCard] = useState(null);
+  const [productInWhichList, setProductInWhichList] = useState();
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
   const handleOpenPopup = () => {
@@ -47,6 +50,10 @@ const ProductItem = ({ product }) => {
     setProductInCard(cart.find((item) => item.id === product.id));
   }, [cart, cart.length, product.id]);
 
+  useEffect(() => {
+    setProductInWhichList(wishList.find((item) => item.id === product.id));
+  }, [wishList, wishList.length, product.id]);
+
   const idDiscounted = useCallback(() => {
     return isEligibleForDiscount(product.discountPercentage);
   }, [product.discountPercentage]);
@@ -59,6 +66,12 @@ const ProductItem = ({ product }) => {
     return inStock(product.availabilityStatus);
   }, [product.availabilityStatus]);
 
+  const handleWishlistClick = () => {
+    dispatch(toggleWishlist(product));
+  };
+
+  console.log("========productInWhichList========", wishList);
+
   return (
     <>
       <Popup
@@ -70,11 +83,20 @@ const ProductItem = ({ product }) => {
         handleRemoveFromCart={handleRemoveFromCart}
       />
       <div className={styles.card}>
-        {favourite() && (
-          <div className={styles.favourite}>
-            <Icon type="heart" />
-          </div>
-        )}
+        {/* {favourite() && ( */}
+        <div
+          className={`${styles.favourite} ${
+            productInWhichList?.id === product.id ? styles.fill : ""
+          }`}
+          onClick={handleWishlistClick}
+        >
+          <Icon
+            type={
+              productInWhichList?.id === product.id ? "heart-fill" : "heart"
+            }
+          />
+        </div>
+        {/* )} */}
         {idDiscounted() && (
           <div className={styles.badge}>
             <span>

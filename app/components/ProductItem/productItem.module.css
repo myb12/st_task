@@ -75,10 +75,19 @@
   top: 12px;
   right: 12px;
   z-index: 2;
+  cursor: pointer;
 }
 
 .favourite svg {
   width: 24px;
+}
+
+.favourite.fill svg {
+  font-size: 24px;
+}
+
+.favourite.fill svg path {
+  fill: #ff0000;
 }
 
 .badge {
