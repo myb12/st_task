@@ -56,6 +56,27 @@
   background: var(--color-green);
 }
 
+.brand {
+  color: var(--color-gray);
+  font-size: var(--fs-14);
+  line-height: 20px;
+  margin-bottom: var(--space0_4);
+  cursor: pointer;
+}
+
+.title {
+  color: var(--color-product-title);
+  font-size: var(--fs-16);
+  font-weight: 600;
+  line-height: 22px;
+  margin-bottom: var(--space0_8);
+  cursor: pointer;
+}
+
+.description {
+  line-height: 1.3;
+}
+
 @media (min-width: 768px) {
   .content {
     grid-template-columns: 30% auto;

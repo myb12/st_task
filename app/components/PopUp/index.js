@@ -40,10 +40,10 @@ const Popup = ({
               <h3 className={styles.title}>{product.title}</h3>
             </Link>
             <Link href="#">
-              <p className={styles.brand}>{product.brand || "Fabrilife"}</p>
+              <p className={styles.brand}>{product.brand}</p>
             </Link>
 
-            <p>{product.description}</p>
+            <p  className={styles.description}>{product.description}</p>
 
             <div
               className={`${styles.addToCart} ${
