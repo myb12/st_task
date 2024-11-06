@@ -53,7 +53,13 @@ const Popup = ({
             >
               <CardButton
                 isProductInCart={!!productInCard}
-                type={productInCard ? "delete" : "cart"}
+                type={
+                  productInCard
+                    ? productInCard.quantity > 1
+                      ? "minus"
+                      : "delete"
+                    : "cart"
+                }
                 onClick={handleAddToCart}
                 handleRemoveFromCart={handleRemoveFromCart}
               >
