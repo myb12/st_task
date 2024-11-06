@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.productImage img {
+  background-color: var(--image-overlay);
+}
+
 .productDetails {
   margin-left: 15px;
   display: flex;
