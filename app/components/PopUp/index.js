@@ -4,6 +4,7 @@ import Link from "next/link";
 import { bool, func, shape, string, number, arrayOf } from "prop-types";
 
 import CardButton from "../CardButton";
+import Icon from "../common/icons";
 
 import styles from "./popUp.module.css";
 
@@ -22,7 +23,7 @@ const Popup = ({
       <div className={styles.overlay} onClick={onClose} />
       <div className={styles.popup}>
         <button className={styles.closeButton} onClick={onClose}>
-          &times;
+          <Icon type="close" />
         </button>
 
         <div className={styles.content}>
@@ -43,7 +44,7 @@ const Popup = ({
               <p className={styles.brand}>{product.brand}</p>
             </Link>
 
-            <p  className={styles.description}>{product.description}</p>
+            <p className={styles.description}>{product.description}</p>
 
             <div
               className={`${styles.addToCart} ${
