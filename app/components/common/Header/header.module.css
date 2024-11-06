@@ -2,16 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #eaeaea;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: var(--space1_0) var(--space2_0);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--divider-color);
+  box-shadow: 0 2px 5px var(--black-10);
 }
 
 .brand {
-  font-size: 1.5rem;
+  font-size: var(--fs-24);
   font-weight: bold;
-  color: #333;
+  color: var(--color-dark-gray);
 }
 
 .menuItem {
@@ -20,13 +20,13 @@
 
 .iconWrapper {
   position: relative;
-  font-size: 1.5rem;
-  color: #333;
+  font-size: var(--fs-24);
+  color: var(--color-dark-gray);
   cursor: pointer;
   display: flex;
   align-items: center;
   font-weight: 700;
-  margin-left: 16px;
+  margin-left: var(--space1_6);
 }
 
 .iconWrapper svg {
@@ -35,14 +35,14 @@
 }
 
 .iconWrapper svg path {
-  fill: #000;
+  fill: var(--foreground);
 }
 
 .iconWrapper span {
-  color: #5a6573;
-  font-size: 14px;
+  color: var(--color-gray);
+  font-size: var(--fs-14);
 }
 
 .iconWrapper.wishList svg {
-  padding: 2px;
+  padding: var(--space0_2);
 }

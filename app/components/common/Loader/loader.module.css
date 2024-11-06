@@ -1,11 +1,11 @@
 .loader {
-  border: 8px solid #ccc;
-  border-top: 8px solid #fe9d36;
+  border: 8px solid var(--color-light-gray);
+  border-top: 8px solid var(--loader-color);
   border-radius: 50%;
   width: 60px;
   height: 60px;
   animation: spin 2s linear infinite;
-  margin: 20px auto;
+  margin: var(--space2_0) auto;
 }
 
 @keyframes spin {

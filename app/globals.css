@@ -3,9 +3,48 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-green: #03a629;
+  --color-white: var(--background);
+  --color-blue: #1882ff;
+  --color-black: #000;
+  --color-product-title: #1a2b3d;
+  --color-dark-blue: #005bb5;
+  --color-gray: #5a6573;
+  --color-light-gray: #ddd;
+  --color-dark-gray: #333;
+  --color-gray-price: #77818c;
+  --color-red: #ff0000;
+  --divider-color: #eaeaea;
+  --loader-color: #fe9d36;
+  --image-overlay: #ebe6e648;
+  --error-bg: #f2dede;
+  --error-border: #ebccd1;
+  --white-30: rgba(255, 255, 255, 0.3);
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-15: rgba(0, 0, 0, 0.15);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-70: rgba(0, 0, 0, 0.7);
 
   --space0_2: 2px;
+  --space0_4: 4px;
+  --space0_6: 6px;
   --space0_8: 8px;
+  --space1_0: 10px;
+  --space1_2: 12px;
+  --space1_6: 15px;
+  --space2_0: 20px;
+  --space2_2: 22px;
+  --space2_4: 24px;
+  --space3_6: 36px;
+  --space5_0: 50px;
+
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
 }
 
 html,

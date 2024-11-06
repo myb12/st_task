@@ -6,7 +6,7 @@
   height: 100%;
 
   &:hover {
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 12px 0px var(--black-15);
 
     .badge {
       left: -6px;
@@ -30,16 +30,16 @@
 }
 
 .brand {
-  color: #5a6573;
-  font-size: 14px;
+  color: var(--color-gray);
+  font-size: var(--fs-14);
   line-height: 20px;
   margin-bottom: var(--space0_2);
   cursor: pointer;
 }
 
 .title {
-  color: #1a2b3d;
-  font-size: 16px;
+  color: var(--color-product-title);
+  font-size: var(--fs-16);
   font-weight: 600;
   line-height: 22px;
   margin-bottom: var(--space0_8);
@@ -47,8 +47,8 @@
 }
 
 .outOfStock {
-  font-size: 12px;
-  color: #5a6573;
+  font-size: var(--fs-12);
+  color: var(--color-gray);
 }
 
 .prices {
@@ -57,14 +57,14 @@
 }
 
 .price {
-  color: #1882ff;
+  color: var(--color-blue);
   font-size: 20px;
   line-height: 22px;
 }
 
 .originalPrice {
-  color: #77818c;
-  font-size: 14px;
+  color: var(--color-gray-price);
+  font-size: var(--fs-14);
   margin-left: var(--space0_8);
   text-decoration-line: line-through;
 }
@@ -72,8 +72,8 @@
 .favourite {
   width: max-content;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: var(--space1_2);
+  right: var(--space1_2);
   z-index: 2;
   cursor: pointer;
 }
@@ -83,18 +83,18 @@
 }
 
 .favourite.fill svg {
-  font-size: 24px;
+  font-size: var(--fs-24);
 }
 
 .favourite.fill svg path {
-  fill: #ff0000;
+  fill: var(--color-red);
 }
 
 .badge {
   position: absolute;
   width: 32%;
   height: 12%;
-  top: 12px;
+  top: var(--space1_2);
   left: -1px;
   z-index: 1;
   background-image: url(/discount-badge.svg);
@@ -104,13 +104,13 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 8px;
-  padding-right: 22px;
+  padding-right: var(--space2_2);
   transition: all 0.15s linear;
 }
 
 .badge span {
-  color: #fff;
-  font-size: 14px;
+  color: var(--color-white);
+  font-size: var(--fs-14);
   font-weight: 600;
 }
 
@@ -134,7 +134,7 @@
     content: "";
     border-radius: 6px 6px 4px 4px;
     opacity: 0.33;
-    background: #000;
+    background: var(--color-black);
     width: 100%;
     height: 100%;
     position: absolute;
