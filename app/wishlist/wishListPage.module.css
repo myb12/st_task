@@ -31,7 +31,9 @@
 .productDetails {
   margin-left: var(--space1_6);
   display: flex;
+  justify-content: space-between;
   gap: var(--space1_0);
+  width: 100%;
 }
 
 .productTitle {
@@ -50,6 +52,7 @@
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.2s;
+  height: max-content;
 }
 
 .iconButton svg path {

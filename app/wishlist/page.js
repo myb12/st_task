@@ -52,6 +52,7 @@ const WishListPage = () => {
               <button
                 onClick={() => handleRemoveFromWishlist(item.id)}
                 className={styles.iconButton}
+                title="Remove from Wishlist"
               >
                 <Icon type="delete" />
               </button>
