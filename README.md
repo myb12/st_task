@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Share Trip Assessment - E-commerce UI
 
-## Getting Started
+[Live Demo](https://st-commerce.netlify.app/)
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Project Overview](#project-overview)
+- [Features](#features)
+  - [Core Features](#core-features)
+  - [Enhancements](#enhancements)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Folder Structure](#folder-structure)
+- [Future Improvements](#future-improvements)
+- [Contact](#contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project is a front-end assessment for Share Trip. It is a React-based e-commerce UI that displays products fetched from an API and includes add-to-cart functionality with a persistent cart state. Additional features, such as a wishlist and quick view functionality, have been added to enhance user experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+### Core Features
 
-To learn more about Next.js, take a look at the following resources:
+1. **Fetch and Display Products**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Products are retrieved from the [DummyJSON Products API](https://dummyjson.com/docs/products) and displayed in a list format, matching the Figma design.
+   - Product details, including images, names, prices, and descriptions, are displayed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Add to Cart**
 
-## Deploy on Vercel
+   - Users can add items to their cart. Once added, the product displays an "Added in Cart" message to indicate its status.
+   - Cart contents are accessible on a dedicated Cart page, where users can view all items added to their cart.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **State Management**
+   - The application leverages Redux Toolkit for managing cart and wishlist states, ensuring a seamless experience across pages.
+   - Cart and wishlist states persist across sessions via local storage, enhancing the usability of the app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Enhancements
+
+1. **Quick View Pop-up**
+
+   - A quick view option is available for each product, allowing users to view details of a product in a modal without leaving the main product listing page.
+
+2. **Wishlist Feature**
+
+   - Users can add products to a wishlist for later consideration.
+   - The wishlist is accessible on a dedicated Wishlist page, where users can view and manage all items they have saved.
+
+3. **Separate Pages for Cart and Wishlist**
+   - The cart and wishlist each have their own pages, providing users a clear overview of items they are interested in purchasing or revisiting.
+
+## Technologies Used
+
+- **React (v19.0.0-rc-02c0e824-20241028)**: JavaScript library for building user interfaces.
+- **Next.js (v15.0.2)**: Framework for server-rendered React applications, used for fast rendering and SEO optimization.
+- **Redux Toolkit (v2.3.0)**: State management library used for handling global state for product, cart and wishlist functionality.
+- **React Query (v5.59.19)**: Used for efficient server-state management, specifically to handle fetching and caching product data from the API.
+- **Axios (v1.7.7)**: Promise-based HTTP client for making API requests.
+- **React Icons (v5.3.0)**: Provides a library of icons for the UI.
+- **Prop Types**: Helps ensure the right type of props are passed to components.
+
+## Setup Instructions
+
+To get this project running locally:
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Run the application**
+   ```bash
+   npm run dev
+   ```
+4. **Open the application in your browser**
+   - Once the development server is running, open [http://localhost:3000](http://localhost:3000) to view the application.
