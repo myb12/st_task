@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +15,13 @@ import styles from "./cartPage.module.css";
 const CartPage = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -37,8 +44,7 @@ const CartPage = () => {
               <Image
                 src={item.images[0]}
                 alt={item.title}
-                layout="fill"
-                objectFit="contain"
+                fill
                 unoptimized
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

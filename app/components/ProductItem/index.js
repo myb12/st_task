@@ -65,8 +65,6 @@ const ProductItem = ({ product }) => {
     dispatch(toggleWishlist(product));
   };
 
-  console.log("========productInWhichList========", wishList);
-
   return (
     <>
       <Popup
@@ -105,16 +103,14 @@ const ProductItem = ({ product }) => {
             isInStock() ? styles.withButton : ""
           }`}
         >
-          <Link href={`/product/${product.id}`}>
-            <Image
-              src={product.images[0]}
-              alt="product"
-              layout="fill"
-              objectFit="contain"
-              unoptimized
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </Link>
+          <Image
+            src={product.images[0]}
+            alt="product"
+            fill
+            unoptimized
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
 
           {
             <div className={styles.buttons}>

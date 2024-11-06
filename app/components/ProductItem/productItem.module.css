@@ -22,7 +22,7 @@
 .productImage img {
   border-radius: var(--space0_8);
   margin-bottom: var(--space0_2);
-  background-color: #ebe6e6;
+  background-color: var(--image-overlay);
 }
 
 .cardFooter {
